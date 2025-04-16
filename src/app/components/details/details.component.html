@@ -1,0 +1,39 @@
+<div *ngIf="users.length">
+  <h2>User Details</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Stream</th>
+        <th>Project Name</th>
+        <th>Status</th>
+        <th>User Role</th>
+        <th *ngIf="userR === 'Admin'">Actions</th>
+        <!-- Only admin sees this -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.stream }}</td>
+        <td>{{ user.projName }}</td>
+        <td>{{ user.status }}</td>
+        <td>{{ user.userRole }}</td>
+        <td *ngIf="userR === 'Admin'">
+          <button (click)="editUser(user)">Edit</button>
+          <button (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Admin-only Add User button -->
+<div *ngIf="userR === 'Admin'" style="margin-top: 20px">
+  <button (click)="navigateToAddUser()">Add New User</button>
+</div>

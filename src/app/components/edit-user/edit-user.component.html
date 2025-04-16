@@ -1,0 +1,70 @@
+<div class="edit-user-container">
+  <h2>Edit User</h2>
+
+  <form (ngSubmit)="onSubmit()" *ngIf="user.id">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="user.name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="stream">Stream:</label>
+      <input type="text" id="stream" name="stream" [(ngModel)]="user.stream" />
+    </div>
+
+    <div class="form-group">
+      <label for="projName">Project Name:</label>
+      <input
+        type="text"
+        id="projName"
+        name="projName"
+        [(ngModel)]="user.projName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <input type="text" id="status" name="status" [(ngModel)]="user.status" />
+    </div>
+
+    <div class="form-group">
+      <label for="userRole">User Role:</label>
+      <select id="userRole" name="userRole" [(ngModel)]="user.userRole">
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? "Saving..." : "Save Changes" }}
+      </button>
+      <button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+
+  <div *ngIf="!user.id && !errorMessage" class="loading">
+    Loading user data...
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<h2>Register</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name" />
+  <div
+    *ngIf="
+      registrationForm.get('name')?.invalid &&
+      registrationForm.get('name')?.touched
+    "
+  >
+    Name is required.
+  </div>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" formControlName="email" />
+  <div
+    *ngIf="
+      registrationForm.get('email')?.invalid &&
+      registrationForm.get('email')?.touched
+    "
+  >
+    Email is required and must be valid.
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" formControlName="password" />
+  <div
+    *ngIf="
+      registrationForm.get('password')?.invalid &&
+      registrationForm.get('password')?.touched
+    "
+  >
+    Password is required.
+  </div>
+
+  <label for="stream">Stream</label>
+  <input type="text" id="stream" formControlName="stream" />
+  <div
+    *ngIf="
+      registrationForm.get('stream')?.invalid &&
+      registrationForm.get('stream')?.touched
+    "
+  >
+    Stream is required and must be valid.
+  </div>
+
+  <label for="projName">projName</label>
+  <input type="text" id="projName" formControlName="projName" />
+  <div
+    *ngIf="
+      registrationForm.get('projName')?.invalid &&
+      registrationForm.get('projName')?.touched
+    "
+  >
+    Project Name is required and must be valid.
+  </div>
+
+  <label for="status">Status</label>
+  <input type="text" id="status" formControlName="status" />
+  <div
+    *ngIf="
+      registrationForm.get('status')?.invalid &&
+      registrationForm.get('status')?.touched
+    "
+  >
+    Status Name is required and must be valid.
+  </div>
+
+  <label for="userRole">User Role</label>
+  <select id="userRole" formControlName="userRole">
+    <option value="">Select role</option>
+    <option value="User">User</option>
+    <option value="Admin">Admin</option>
+  </select>
+  <div
+    *ngIf="
+      registrationForm.get('userRole')?.invalid &&
+      registrationForm.get('userRole')?.touched
+    "
+  >
+    Role is required and must be valid.
+  </div>
+
+  <button type="button" (click)="sendVerificationCode()">Send Code</button>
+
+  <input
+    formControlName="verificationCode"
+    placeholder="Enter verification code"
+  />
+
+  <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+</form>

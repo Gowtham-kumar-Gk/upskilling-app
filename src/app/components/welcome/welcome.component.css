@@ -1,0 +1,119 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: #a100ff;
+}
+
+.image img {
+  height: 80px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+div {
+  text-align: center;
+  max-width: 100%;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #a100ff;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+span {
+  display: block;
+  margin-bottom: 2rem;
+  color: #666;
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+div:last-child {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:first-child {
+  background-color: #a100ff;
+  color: white;
+}
+
+button:last-child {
+  background-color: white;
+  color: #a100ff;
+  border: 2px solid #a100ff;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(161, 0, 255, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  div {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  div:last-child {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
